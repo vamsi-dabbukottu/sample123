@@ -1,0 +1,146 @@
+--------------------------------------------------------------------------------------------------------------
+Limitations of Traditional Computing
+--------------------------------------------------------------------------------------------------------------
+1) Hardware wastage
+2) License
+3) Scaling (Vertical, Horizantal)
+4) Availability -> Maintenance (Planned, Unplanned)
+5) Cost
+
+--------------------------------------------------------------------------------------------------------------
+Cloud Computing
+--------------------------------------------------------------------------------------------------------------
+SAAS
+PAAS
+IAAS
+--------------------------------------------------------------------------------------------------------------
+Azure Training Content
+--------------------------------------------------------------------------------------------------------------
+1) Azure Subscriptions : 
+	EA, CSP, Sponsorship (Sponsored, Free Trial, Azure Pass)
+2) Azure Stack Services
+3) Azure Resource Manager 
+	-> (Resource, Resource Group, Resource Type, Resource Provider, ARM Template)
+--------------------------------------------------------------------------------------------------------------
+Azure PAAS
+--------------------------------------------------------------------------------------------------------------
+1) App Services : PAAS  ->  App Service Plan
+	a) WebApp  -> web application hosting -> <appname>.azurewebsites.net  -> .Net, Java, PHP, Python, Ruby, NodeJs, static
+		   -> Deployment : FTP, Deployment Centre(github, Azure devops..,), IDE(Visual Studio)
+		   -> Deployment Slots : Production, test, development etc., -> <appname>-<slotname>.azurewebsites.net, Swap
+		   -> Custom Domain ({A,TXT}, {CNAME})
+		   -> SSL(secured socket layer) -> IP & SNI(service name indication)
+		   -> Configuration
+		   -> Scaling
+		   -> Webjobs -> .exe, .cmd, .ps1, .jar, .php, .py, .sh et., -> {Conitinious, Triggered (Schedule->CRON, Manual)} 
+			      -> CRON : (sec)* (min)* (hrs)* (date)* (month)* (day of a week)* -> 0 30 9 */2 * 5
+   		   -> CORS
+		   -> Kudu Portal -> SCM  -> <appname>.scm.azurewebsites.net
+		   -> Networking
+		   -> Traffic Manager Profile
+
+	b) Function App : IPAAS -> Sererless  -> windows/linux
+			  -> Consumption, App Service Plan -> Http, Timer, Event
+			  -> <functionappnae>.azurewebsites.net/<functionname>
+			  -> Pricing : AppServiceplan, Consumption
+ 
+2) CDN  : cache static content -> providers  : Verizon, Akamai, Microsoft 
+	  -> <cdnname>.azureedge.net 
+	  -> source : (WebApp, storage, traffic manager) -> html, css, js, images, videos, documents		  
+
+3) Logic App : IPAAS -> serverless -> codeless
+	       trigger -> condition(s) -> action(s)
+	       connectors
+
+4) Storage Account -> <saname>.<servicename>.core.windows.net
+		   -> General Purpose, Blob, Archive
+                   -> Cool/Hot
+                   -> standard/premium
+                   -> Replication : LRS, ZRS, GRS, RA-GRS, GZRS, RA-GZRS                   
+		   -> Configuration : Access Keys, SAS, Networking, Encryption, Soft-Delete, Custom Domain
+		   -> Migration : Azure File Sync,  Azure Data Box
+		   -> Tool : Storage Explorer
+	a) Blob	 : <saname>.blob.core.windows.net  
+                   -> Container : <Saname>.blob.core.windows.net/<containername>
+		   -> Blob      : <Saname>.blob.core.windows.net/<containername>/<blobname>
+		   -> Block, Append, Page
+
+	b) Table : <saname>.table.core.windows.net -> unstructured -> CosmosDb
+		   emp(id, name, salary) -> (1, abc, 2000), (2, def, 3000, bangalore)
+		
+	c) Queue : <saname>.queue.core.windows.net
+                   Max : 7days
+                   Max : 126KB , 80GB                    
+
+	d) Files : <saname>.files.core.windows.net -> File Share -> 4GB -> SMB 3.0
+
+5) Databases(SQL) :PAAS, IAAS
+		   Structured -> SQL, MySql, PostgreSql, Oracle 
+		   PAAS : Azure SQL and Azure Managed Instance for sql			
+		   Azure SQL : <servername>.database.windows.net
+		   Firewall Settings
+		   Geo-Replication -> Primary, Secondary
+		   Sync Databases
+		   Azure Search
+		   Failover Groups
+		   Migration : Assessment -> Migration PLan (R-Lane : Rehost, Redesign, Rebuild, Refract)
+			       -> DMA : SQl  - Azure SQL/Azure SQL Managed Instance/ Azure SQL for VM
+			       -> DMS/MySql Community Workbench : MySql -> Azure Mysql 
+			       -> DMS :  MySql/Oracle/PostgreSql  -> Azure SQL
+
+                   Tools : SSMS, Query Editor (in portal), Azure Data Studio, DMA
+
+6) Service Bus  : 
+		-> <sbname>.servicebus.windows.net -> 80GB
+		a) Queue : FIFO -> Single directional -> Messaging Broker -> max 14days -> One-to-One
+		b) Topic : FIFO -> Single directional -> Messaging Broker -> max 14days -> One-to-many -> Subscribe model
+        	c) Relay : Bi-directional -> Many-to-Many
+
+7) Redis Cache	: 
+		-> opne-source cache database provided by Redis
+                -> <redisname>.redis.cache.windows.net
+                -> in-memory data storage and retrieval
+	
+8) Azure Search :
+		-> Search As A Service
+                -> <searchname>.search.windows.net
+ 
+9) Azure Key Vault
+--------------------------------------------------------------------------------------------------------------
+Azure IAAS
+--------------------------------------------------------------------------------------------------------------
+1) Virual Network 
+	-> Network
+	-> Ip Address (0.0.0.0 - 255.255.255.255)-> ipv4, hashcode -> ipv6 -> Public and Private
+	-> Subnetwork
+		-> 10.0.0.0/8  : 10.0.0.0 to 10.255.255.255
+		-> 10.0.0.0/16 : 10.0.0.0 to 10.0.255.255
+		-> 10.0.0.0/24 : 10.0.0.0 to 10.0.0.255
+		-> 10.0.0.0/32 : 10.0.0.0 to 10.0.0.0
+        -> Connectivity Types
+2) Network Security Group
+	-> Firewall Rules : Inbound and Outbound
+3) Load Balancer : Internal(Private) and External (Public)
+		   -> Load Balancer Rule : (FrontEndIPConfiguration -> BackEndPool -> Health Probe)
+5) Virtual Machines
+6) Availability Set
+7) VM Scale Set
+--------------------------------------------------------------------------------------------------------------
+Azure Monitoring
+--------------------------------------------------------------------------------------------------------------
+1) Azure Monitor (AMS, Activity Logs, Diagonostic Logs)
+2) Backup & Recovery
+3) Metrics
+4) Alerts
+--------------------------------------------------------------------------------------------------------------
+Azure Governance
+--------------------------------------------------------------------------------------------------------------
+1) Azure Policy
+2) Azure Active Directory (IAM)
+--------------------------------------------------------------------------------------------------------------
+Azure Tools
+--------------------------------------------------------------------------------------------------------------
+1) Azure Portal
+2) Azure Powershell ISE
+3) ARM Template
+4) Other Tools (Storage Explorer, AD Connect, DMS, DMS etc.,)
